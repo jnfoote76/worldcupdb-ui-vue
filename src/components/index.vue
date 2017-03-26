@@ -1,5 +1,6 @@
 <template>
-  <div class="hello">
+  <div class="index">
+    <img src="../assets/soccer_ball.jpg" />
     <h1>Mondial DB: A World Cup Database</h1>
     <form>
       <select v-model="selected">
@@ -14,7 +15,7 @@
       </div>
 
       <div v-if="queryOptions[selected].prompts">
-        <input class="submit" type="submit" value="Submit Query" />
+        <input class="submit" type="submit" value="Run Query" />
       </div>
     </form>
   </div>
@@ -30,7 +31,7 @@ const prompts = {
 }
 
 const queryOptions = [
-  {query: 'Please Select A Query', prompts: null, disabled: true},
+  {query: 'Please Select a Query', prompts: null, disabled: true},
   {query: 'Specific Cup Query', prompts: ['year'], disabled: false},
   {query: 'Specific Player Query', prompts: ['player'], disabled: false},
   {query: 'Superstars Query', prompts: [], disabled: false},
@@ -56,22 +57,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+.index {
+  margin-top: 100px;
+}
+
+img {
+  height: 250px;
+  width: 350px;
+}
+
+h1 {
   font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 
 input {
@@ -83,10 +79,6 @@ input {
 select {
   margin-bottom: 20px;
   margin-left: 5px;
-}
-
-.inputField {
-  margin-bottom: 10px;
 }
 
 .submit {

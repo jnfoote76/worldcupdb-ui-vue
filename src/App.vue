@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/soccer_ball.jpg" />
     <router-view></router-view>
   </div>
 </template>
@@ -18,11 +17,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
-
-img {
-  height: 250px;
-  width: 350px;
 }
 </style>
