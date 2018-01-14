@@ -11,11 +11,13 @@
       <br />
 
       <div v-for="prompt in queryOptions[selected].prompts">
-        {{ prompts[prompt] }} <input type="text" :name="prompt" />
+        {{ prompts[prompt] }} <input type="text" v-model="selectedInputs[prompt]" />
       </div>
 
       <div v-if="queryOptions[selected].prompts">
-        <input class="submit" type="submit" value="Run Query" />
+        <router-link tag="button" :to="{ name: 'Query', params: { queryIndex: selected, year: selectedInputs['year'], player: selectedInputs['player'], country: selectedInputs['country'], countryA: selectedInputs['countryA'], countryB: selectedInputs['player'] }}">
+          Run Query
+        </router-link>
       </div>
     </form>
   </div>
@@ -48,8 +50,20 @@ export default {
   data () {
     return {
       selected: 0,
+      selectedInputs: {
+        'year': '',
+        'player': '',
+        'country': '',
+        'countryA': '',
+        'countryB': ''
+      },
       prompts: prompts,
-      queryOptions: queryOptions,
+      queryOptions: queryOptions
+    }
+  },
+  watch: {
+    selectedInputs: function (val) {
+      console.log(val)
     }
   }
 }
@@ -59,6 +73,7 @@ export default {
 <style scoped>
 .index {
   margin-top: 100px;
+  text-align: center;
 }
 
 img {
