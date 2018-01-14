@@ -180,4 +180,27 @@ span {
 h3 {
   text-align: center;
 }
+
+table {
+	margin: auto;
+	width: 90%;
+	border-collapse: collapse;
+	border-style: solid;
+	border-color: #fc0;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+th, td {
+	padding: 5px;
+	width: 1%;
+}
+
+th {
+	background-color: #326295;
+	font-family: "Arial Black";
+	color: white;
+}
 </style>
